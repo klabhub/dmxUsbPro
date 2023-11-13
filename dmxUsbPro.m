@@ -38,7 +38,7 @@ classdef dmxUsbPro <handle
     % I tested this with a waveform lighting 3082 Dimmer controlling a LED
     % strip. In this setup channel 1 was the lightstrip. To let that
     % strip flicker at 2 Hz from its lowest to its highest brightness:
-    % sinusoid(o,1,255,2) 
+    % sinusoid(o,1,127,2) 
     % This will run for 1 minute
     %
     % BK - Sept 2023
