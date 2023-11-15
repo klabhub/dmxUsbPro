@@ -129,7 +129,7 @@ classdef dmxUsbPro <handle
                 o.hSerial = serialport(prt,9600);
             catch me
                 if strcmpi(me.identifier,'serialport:serialport:ConnectionFailed')
-                    fprintf('Could not connect to  %s. Probably you connected to it already? Clear the dmxUsbPro object, or clear all\n',prt)
+                    fprintf('Could not connect to  %s. Probably you connected to it already? \n Clear the dmxUsbPro object, or clear all, or, if you have timers that call this, use delete(timerfind)\n',prt)
                 else
                     rethrow(me)
                 end
@@ -158,7 +158,7 @@ classdef dmxUsbPro <handle
             end
             tic;
             fprintf('Starting sinusoid loop for %.2f s. Press ctrl-c to terminate.\n',duration)            
-            while (toc<60)
+            while (toc<duration)
                 setChannel(o,channel,128+amplitude*sin(2*pi*toc*frequency));
                 pause(1/o.outputRate-.005); % Be nice, allow interrupts
             end     
